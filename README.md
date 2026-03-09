@@ -1,19 +1,169 @@
-# Email-Spam-Detection-using-Naive-Bayes-Classification
-
+# Email Spam Detection using Classification Models
 ## AIM
-To find Email Spam Detection using Naive Bayes Classification
+
+To develop a machine learning model that can automatically classify emails as Spam or Ham (Not Spam) using classification algorithms and evaluate their performance.
+
+### Data Description
+
+The dataset contains email text messages along with their corresponding labels indicating whether the email is Spam or Ham.
+
+## 1. Dataset Features
+Feature	Description
+text	The content of the email message
+label	Target variable indicating spam or ham
+
+### Example dataset:
+
+Text	Label
+Win money now	Spam
+Hello how are you	Ham
+Limited offer claim prize	Spam
+Let's meet tomorrow	Ham
+Data Processing
+
+Since machine learning models cannot process raw text directly, the text data is converted into numerical features using TF-IDF Vectorization.
+
+TF-IDF helps measure the importance of a word in a document relative to the dataset.
+
+### Data Visualization
+
+Distribution of spam and ham emails can be visualized using a bar chart.
+
+sns.countplot(x=df["label"])
+plt.title("Spam vs Ham Distribution")
+plt.show()
+
+This helps understand the balance between spam and non-spam emails.
+
+## 2. Objective of the Analysis
+
+The main objective of this analysis is to build a classification model capable of detecting spam emails based on their text content.
+
+Subtasks involved in this analysis include:
+
+Preprocessing the email text data.
+
+Converting text into numerical features using TF-IDF.
+
+Splitting the dataset into training and testing sets.
+
+Training classification models.
+
+Comparing model performance using evaluation metrics.
+
+Possible challenges that may occur include:
+
+Small dataset size
+
+Text data noise
+
+Class imbalance between spam and ham emails
+
+These challenges may affect model accuracy and generalization.
+
+## 3. Classification Models
+
+Two classification algorithms are used in this analysis:
+
+## 1. Naive Bayes Classifier
+
+Naive Bayes is a probabilistic classification algorithm commonly used for text classification problems.
+
+### Advantages:
+
+Fast training
+
+Works well with text data
+
+Handles high dimensional data
+
+## 2. Logistic Regression Classifier
+
+Logistic Regression is another classification model that predicts the probability of a class using the sigmoid function.
+
+### Advantages:
+
+Simple and interpretable
+
+Effective for binary classification
+
+Model Comparison
+
+The models are evaluated using:
+
+Accuracy
+
+Precision
+
+Recall
+
+F1 Score
+
+Confusion Matrix
+
+Based on the evaluation results, Naive Bayes performs better for text classification tasks, making it the most suitable model for spam detection.
+
+## 4. Key Insights and Findings
+
+From the analysis, the following insights were obtained:
+
+Spam emails usually contain promotional words such as win, offer, prize, free, lottery.
+
+Ham emails typically contain conversational or professional words.
+
+The Naive Bayes model performs well for text classification because it works effectively with word frequency features.
+
+The confusion matrix shows how accurately the model distinguishes between spam and non-spam emails.
+
+The model successfully identifies spam messages with good accuracy.
+
+## 5. Next Steps and Improvements
+
+Although the model performs well, several improvements can be made:
+
+Possible Flaws
+
+The dataset used is very small.
+
+Real-world emails contain more complex patterns.
+
+Some spam emails may appear similar to legitimate emails.
+
+Future Improvements
+
+Use a larger real-world dataset such as the SpamAssassin dataset.
+
+Apply advanced preprocessing techniques like stopword removal and stemming.
+
+Test additional models such as:
+
+Support Vector Machine (SVM)
+
+Random Forest
+
+Deep Learning models
+
+Improve feature extraction using word embeddings.
+
+These improvements can help build a more accurate spam detection system.
 
 ## ALGORITHM
 
-1. Load the labeled email dataset.
+1. Import necessary libraries.
 
-2. Convert text into numerical features using TF-IDF vectorization.
+2. Load the email dataset.
 
-3. Split the dataset into training and testing sets.
+3. Convert text data into numerical features using TF-IDF vectorization.
 
-4. Train the Multinomial Naive Bayes classifier.
+4. Split the dataset into training and testing data.
 
-5. Evaluate using Accuracy, Precision, Recall, F1-Score and visualize the results
+5. Train classification models (Naive Bayes and Logistic Regression).
+
+6. Predict results using the trained models.
+
+7. Evaluate models using Accuracy, Precision, Recall, and F1-score.
+
+8. Visualize results using a confusion matrix.
 
 ## PROGRAM
 
@@ -65,7 +215,7 @@ y_pred = model.predict(X_test)
 
 # Metrics
 print("Name: BALAMURUGAN S")
-print("Reg No: 212225240020")
+PRINT("Reg No: 212225240020")
 print("Accuracy:", accuracy_score(y_test, y_pred))
 print("\nClassification Report:\n", classification_report(y_test, y_pred))
 
@@ -79,14 +229,13 @@ plt.ylabel("Actual")
 plt.title("Confusion Matrix")
 plt.show()
 ```
-## OUTPUT
 
-<img width="1391" height="288" alt="image" src="https://github.com/user-attachments/assets/c32ec106-a4b8-4e00-8747-66d566fa8c38" />
+## Output
+<img width="1797" height="316" alt="image" src="https://github.com/user-attachments/assets/860412f7-4d95-4cd7-bdb5-2815d3de291e" />
+<img width="1794" height="602" alt="image" src="https://github.com/user-attachments/assets/eba4d25e-61da-4fb9-8e2a-fea2700b5029" />
 
-<img width="1372" height="556" alt="image" src="https://github.com/user-attachments/assets/15c77308-a447-480e-9191-a76aeefbb53c" />
 
+## RESULT
 
-## Result
-
-The Naive Bayes classifier successfully classified spam and non-spam emails with high accuracy and 
-clear confusion matrix visualization.
+The classification models were successfully implemented to detect spam emails.
+Among the tested models, Naive Bayes provided better performance for text classification, making it the most suitable model for this task.
